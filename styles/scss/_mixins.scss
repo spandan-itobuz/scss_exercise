@@ -1,3 +1,5 @@
+$primary-color: rgb(14, 234, 238);
+
 @mixin flex-spaced {
   display: flex;
   justify-content: space-between;
@@ -9,7 +11,7 @@
 }
 
 @mixin button-page {
-  background: radial-gradient(circle, #4ae268 0%, #1ab450 100%);
+  background-color: $primary-color;
   height: 2rem;
   width: 5rem;
   border: none;

@@ -22,6 +22,10 @@ body {
 
       a {
         text-decoration: none;
+        color: $primary-color;
+      }
+      a:hover {
+        text-decoration: underline;
       }
     }
   }
@@ -32,8 +36,8 @@ body {
     height: 300px;
     width: 100%;
     border-bottom: 1px solid blue;
-    background-image: url("https://codetheweb.blog/assets/img/posts/css-advanced-background-images/cover.jpg");
-    background-size: auto;
+    background-image: url("https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    background-size: cover;
     input {
       width: 30%;
       padding: 12px;
@@ -44,7 +48,7 @@ body {
       font-size: 16px;
     }
     button {
-      background: radial-gradient(circle, #4ae268 0%, #1ab450 100%);
+      background-color: $primary-color;
       height: 45px;
       width: 5rem;
       font-size: large;
@@ -53,6 +57,9 @@ body {
   .main-heading {
     @include mixins.flex-spaced();
     padding: 2rem;
+    p {
+      color: $primary-color;
+    }
   }
 
   .grid-container {
@@ -142,88 +149,131 @@ span {
       height: 2rem;
       width: 2.5rem;
       background-color: #ccc;
-      border: 1px solid green;
     }
     button:hover {
       scale: 1.1;
+    }
+    .active {
+      background-color: $primary-color;
+      color: white;
     }
   }
 }
 
 footer {
-  background-color: #f2f2f2;
-  padding: 40px 60px;
-  font-family: Arial, sans-serif;
-  font-size: 14px;
-  color: #666;
+  background: rgb(244, 251, 251);
+  padding: 3rem 0 1rem;
+  // margin-top: 4rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 
-  .footer-container {
+  .footer-content {
     display: flex;
-    justify-content: center;
-    padding: 0;
-    flex-wrap: wrap;
-    gap: 160px;
+    justify-content: space-between;
+    gap: 3rem;
+    margin-bottom: 2rem;
+    max-width: 750px;
   }
 
-  .footer-about,
-  .footer-links,
-  .footer-social,
-  .footer-legal {
+  .footer-section {
+    h3 {
+      color: $primary-color;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    p {
+      color: rgb(156, 161, 161);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    &:first-child {
+      flex: 2;
+    }
+
+    &:last-child {
+      flex: 1;
+    }
+  }
+
+  .footer-links {
     display: flex;
-    flex-direction: row;
-    flex: 1 1 200px;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+
+    .footer-column {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 0.5rem;
+      align-items: flex-end;
+
+      a {
+        color: rgb(156, 161, 161);
+        text-decoration: none;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: $primary-color;
+        }
+      }
+    }
   }
 
-  .footer-about h3,
-  .footer-links h3 {
-    color: #00a8a8;
-    margin-bottom: 10px;
-  }
+  .social-icons {
+    display: flex;
+    gap: 0.5rem;
 
-  .footer-links a,
-  .footer-legal a {
-    @include mixins.footer-link;
-  }
-
-  .footer-social {
-    gap: 10px;
-    margin-bottom: 20px;
-
-    a {
-      width: 32px;
-      height: 32px;
-      background-color: white;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      // display: flex;
-      // justify-content: center;
-      // align-items: center;
-      color: #333;
-      transition: 0.3s;
+    .social-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 35px;
+      height: 35px;
+      background: transparent;
+      border: 2px solid lightblue;
+      color: whitesmoke;
+      border-radius: 10%;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
 
       &:hover {
-        background-color: #e6e6e6;
+        border-color: $primary-color;
+        color: $primary-color;
+        transform: translateY(-2px);
       }
     }
   }
 
   .footer-bottom {
-    text-align: center;
-    margin-top: 30px;
-    font-size: 12px;
-    color: #999;
-  }
+    border-top: 1px solid lightblue;
+    padding-top: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-  .footer-right {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  .footer-links {
-    display: flex;
-    flex-direction: column;
-  }
-  .footer-left {
-    max-width: 500px;
-    padding-top: 50px;
+    .footer-copyright {
+      p {
+        color: rgb(156, 161, 161);
+        font-size: 0.9rem;
+        margin: 0;
+      }
+    }
+
+    .footer-credit {
+      p {
+        color: rgb(156, 161, 161);
+        font-size: 0.9rem;
+        margin: 0;
+      }
+
+      span {
+        color: $primary-color;
+        font-weight: 600;
+      }
+    }
   }
 }
