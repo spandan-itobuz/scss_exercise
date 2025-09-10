@@ -1,0 +1,168 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+@mixin flex-spaced {
+  display: flex;
+  justify-content: space-between;
+}
+
+@mixin content-box($area, $color) {
+  grid-area: $area;
+  background-color: $color;
+}
+
+@mixin button-page {
+  background: radial-gradient(circle, #4ae268 0%, #1ab450 100%);
+  height: 2rem;
+  width: 5rem;
+  border: none;
+  border-radius: 5px;
+}
+
+$primary-color: rgb(14, 234, 238);
+
+body {
+  top: 0;
+  .nav-container {
+    @include flex-spaced();
+    padding: 1.25rem;
+    align-items: center;
+    border-bottom: 1px solid black;
+    background-color: #eae9e9;
+    .nav-right {
+      display: flex;
+      justify-content: space-evenly;
+      gap: 2rem;
+
+      a {
+        text-decoration: none;
+      }
+    }
+  }
+  .search-space {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    width: 100%;
+    border-bottom: 1px solid blue;
+    background-image: url("https://codetheweb.blog/assets/img/posts/css-advanced-background-images/cover.jpg");
+    background-size: auto;
+    input {
+      width: 30%;
+      padding: 12px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      font-size: 16px;
+    }
+    button {
+      background: radial-gradient(circle, #4ae268 0%, #1ab450 100%);
+      height: 45px;
+      width: 5rem;
+      font-size: large;
+    }
+  }
+  .main-heading {
+    @include flex-spaced();
+    padding: 2rem;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: 150px 1fr 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+      "nav upper-left upper-center upper-right"
+      "nav middle middle middle"
+      "nav lower lower lower";
+    gap: 10px;
+    height: 100vh;
+    padding: 0.5rem;
+    div {
+      border-radius: 5px;
+    }
+    // div:hover {
+    //   scale: 1.1;
+    // }
+  }
+  .nav {
+    @include content-box(nav, #ab5bab);
+  }
+
+  .upper-content-left {
+    @include content-box(upper-left, #a0a0a0);
+  }
+
+  .upper-content-center {
+    @include content-box(upper-center, #ff0000);
+  }
+
+  .upper-content-right {
+    @include content-box(upper-right, #d3d3d3);
+  }
+
+  .middle-content {
+    @include content-box(middle, #6a95ed);
+  }
+
+  .lower-content-2 {
+    @include content-box(lower, #ff8c00);
+  }
+}
+
+.footer-container {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  background-color: #ccc;
+  padding-top: 55px;
+  padding-bottom: 50px;
+  .left-footer {
+    ul {
+      li {
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: $primary-color;
+}
+
+span {
+  border: 0.25px solid black;
+  width: auto;
+}
+
+.below-heading {
+  @include flex-spaced();
+  padding: 10px 20px 10px 20px;
+
+  button {
+    @include button-page();
+  }
+  .middle-div {
+    display: flex;
+    width: 50%;
+    justify-content: center;
+    gap: 5px;
+    button {
+      height: 2rem;
+      width: 2.5rem;
+      background-color: #ccc;
+      border: 1px solid green;
+    }
+    button:hover {
+      scale: 1.1;
+    }
+  }
+}
